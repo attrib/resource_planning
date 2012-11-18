@@ -1,16 +1,173 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CoffeeTest</title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <meta charset="utf-8">
+    <title>Resource Planning</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#home">Resource Planning</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#persons">Persons</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+    <section id="home" class="container">
+        <h1>Overview</h1>
+        <div class="content">
+            <form class="form-signin">
+                <h2 class="form-signin-heading">Please sign in</h2>
+                <input id="login-name" type="text" class="input-block-level" placeholder="Username">
+                <input id="login-password" type="password" class="input-block-level" placeholder="Password">
+                <button id="login" class="btn btn-large btn-primary" type="submit">Sign in</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="persons" class="container">
+        <h1>Persons</h1>
+        <div class="content">
+            <div class="links"><ul class="nav"><li><a href="#persons-edit">Add Person</a></li></ul></div>
+        </div>
+    </section>
+
+    <section id="persons-edit" class="container">
+        <h1>Add Person</h1>
+        <div class="content">
+            <form class="form-edit form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="person-name">Username</label>
+                    <div class="controls">
+                        <input id="person-name" type="text" class="input-large" placeholder="Username">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="person-password">Password</label>
+                    <div class="controls">
+                        <input id="person-password" type="password" class="input-large" placeholder="Password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="person-password-2">Password (Retype)</label>
+                    <div class="controls">
+                        <input id="person-password-2" type="password" class="input-large" placeholder="Password (Retype)">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="person-full-name">Full name</label>
+                    <div class="controls">
+                        <input id="person-full-name" type="text" class="input-large" placeholder="Full name">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <span class="control-label">Location</span>
+                    <div class="controls">
+                        <label class="radio inline">
+                            <input type="radio" name="person-location" value="IT">IT
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="person-location" value="IT_Sofia">IT Sofia
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="person-location" value="IT_Sevilia">IT Sevila
+                        </label>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <span class="control-label">Skills</span>
+                    <div class="controls">
+                        <label class="checkbox inline">
+                            <input type="checkbox" name="person-skill" value="PHP">PHP
+                        </label>
+                        <label class="checkbox inline">
+                            <input type="checkbox" name="person-skill" value="JS">JS
+                        </label>
+                        <label class="checkbox inline">
+                            <input type="checkbox" name="person-skill" value="CSS">CSS
+                        </label>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <button id="person-add" class="btn btn-primary controls" type="submit">Add Person</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h1>Projects</h1>
+        <div class="content">
+            <div class="links"><ul class="nav"><li><a href="#project-edit">Add Project</a></li></ul></div>
+        </div>
+    </section>
+
+    <section id="project-edit" class="container">
+        <h1>Add Project</h1>
+        <div class="content">
+            <form class="form-edit form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="project-name">Name</label>
+                    <div class="controls">
+                        <input id="project-name" type="text" class="input-xlarge" placeholder="Name">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="project-description">Description</label>
+                    <div class="controls">
+                        <textarea id="project-description" class="input-xlarge" placeholder="Description" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="project-url">URL</label>
+                    <div class="controls">
+                        <input id="project-url" type="text" class="input-xlarge" placeholder="URL">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="project-deadline">Deadline</label>
+                    <div class="controls">
+                        <input id="project-deadline" type="date" class="input-xlarge" placeholder="Deadline">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <button id="project-add" class="btn btn-primary controls" type="submit">Add Project</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/bundle.js"></script>
     <script>
         window.onload = function() {
-            require('/client');
+            require('/client/client');
         }
     </script>
-</head>
-<body>
-    <div>Test</div>
 </body>
 </html>

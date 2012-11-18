@@ -1,17 +1,16 @@
 
 io        = require('socket.io')
 express   = require('express')
-UUID      = require('node-uuid')
 http      = require('http')
 fs        = require('fs')
 
-GAME_PORT = process.env.PORT || 7007
+PORT = process.env.PORT || 7007
 
 app    = express()
 server = http.createServer(app)
 
-server.listen(GAME_PORT)
-console.log("\t :: Express :: Listening on port #{GAME_PORT}")
+server.listen(PORT)
+console.log("\t :: Express :: Listening on port #{PORT}")
 
 app.get '/', (req, res) ->
   res.sendfile 'www/index.html'
@@ -31,28 +30,13 @@ sio.configure ->
   @set 'authorization', (handshakeData, callback)->
     callback(null, true)
 
-games = {}
-
 sio.on 'connection', (client)->
-  game = null
-  console.log "Client connected #{client}"
-  client.user_id = UUID()
-  client.emit 'onconnect', id:client.user_id
+  console.log "Client connected #{client.id}"
 
-  client.on 'join', (data)->
-    console.log "#{client.user_id} wants to join #{data.game_id}"
-    game = games[data.game_id]
-    if not game
-      console.log " create new game"
-      games[data.game_id] = game = new ServerGame
-      game.emit = (channel, d)->
-        sio.sockets.in("/"+data.game_id).emit(channel, d)
-
-    client.join "/"+data.game_id
-    client.leave ""
-    game.join client
+  client.on 'login', (data)->
+    console.log data
 
   client.on 'disconnect', ->
-    console.log "Client disconnected #{client.user_id} from #{game}"
+    console.log "Client disconnected #{client.id}"
 
 

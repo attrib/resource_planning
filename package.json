@@ -1,5 +1,5 @@
 {
-    "name": "ressource_planning",
+    "name": "resource_planning",
     "version" : "0.1.0",
     "engines" : {
         "node" : ">=0.8.0"
@@ -9,7 +9,6 @@
         "coffee-script" : "latest",
         "socket.io" : "latest",
         "express" : "latest",
-        "node-uuid" : "latest",
         "http" : "latest",
         "socket.io-client" : "latest",
         "browserify" : "latest"
